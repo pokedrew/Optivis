@@ -72,7 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 15;
+    private static final int DEFAULT_ZOOM = 22;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -170,11 +170,11 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap.moveCamera(CameraUpdateFactory.newLatLng(Documation));
 
 
-            LatLng NEWARK = new LatLng(29.588797, -98.574028);
+            LatLng NEWARK = new LatLng(29.588890, -98.574000);
 
             GroundOverlayOptions newarkMap = new GroundOverlayOptions()
                     .image(BitmapDescriptorFactory.fromResource(R.drawable.newark_nj_1922))
-                    .position(NEWARK, 600f, 500f);
+                    .position(NEWARK, 88.4f, 114.6f);
             mMap.addGroundOverlay(newarkMap);
 
         // Enable the zoom controls for the map
@@ -246,11 +246,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                 });
 
         }
+
+
     private void getDeviceLocation(){
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
          */
+
         try {
             if (mLocationPermissionGranted) {
                 Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
