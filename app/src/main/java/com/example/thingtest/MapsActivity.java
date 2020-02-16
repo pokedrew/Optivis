@@ -2,6 +2,7 @@ package com.example.thingtest;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -11,6 +12,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.GroundOverlayOptions;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import androidx.annotation.NonNull;
@@ -54,8 +56,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLocationButtonClickListener,
+        GoogleMap.OnMyLocationClickListener,
+        OnMapReadyCallback {
 
     private GoogleMap mMap;
 
@@ -67,12 +73,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     // The geographical location where the device is currently located. That is, the last-known
     // location retrieved by the Fused Location Provider.
-    private Location mLastKnownLocation;
+   public Location mLastKnownLocation;
 
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 20;
+    private static final int DEFAULT_ZOOM = 19;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -82,6 +88,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private String[] mLikelyPlaceAddresses;
     private String[] mLikelyPlaceAttributions;
     private LatLng[] mLikelyPlaceLatLngs;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,14 +124,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         return super.onCreateOptionsMenu(menu);
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_geolocate:
 
-                // COMMENTED OUT UNTIL WE DEFINE THE METHOD
-                // Present the current place picker
-                pickCurrentPlace();
+                Timer timer = new Timer();
+
+                timer.schedule( new TimerTask() {
+                    public void run() {
+                        // COMMENTED OUT UNTIL WE DEFINE THE METHOD
+                        // Present the current place picker
+
+
+                    }
+                }, 0, 5*1000);
+
                 return true;
 
             default:
@@ -133,6 +151,10 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         }
     }
+
+
+
+
     private void getLocationPermission() {
         /*
          * Request location permission, so that we can get the location of the
@@ -162,21 +184,37 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+        try {
+            // Customise the styling of the base map using a JSON object defined
+            // in a raw resource file.
+            boolean success = googleMap.setMapStyle(
+                    MapStyleOptions.loadRawResourceStyle(
+                            this, R.raw.mapstyle));
 
+            if (!success) {
+                Log.e(TAG, "Style parsing failed.");
+            }
+        } catch (Resources.NotFoundException e) {
+            Log.e(TAG, "Can't find style. Error: ", e);
+        }
+        mMap = googleMap;
+        mMap.setMyLocationEnabled(true);
+        mMap.setOnMyLocationButtonClickListener(this);
+        mMap.setOnMyLocationClickListener(this);
         // follow location
         LatLng myLocation = new LatLng(29.588797, -98.574028);
         LatLng employeeEnterance = new LatLng(29.5891972, -98.5740650);
         LatLng ITdesk = new LatLng(29.588797, -98.574028);
         //change coordinates
-        LatLng lobby = new LatLng(29.588797, -97.574028);
-        mMap.addMarker(new MarkerOptions().position(myLocation).title("My Location"));
-        mMap.addMarker(new MarkerOptions().position(employeeEnterance).title("Employee Enterance"));
+        LatLng lobby = new LatLng(29.588761, -98.573729);
+        LatLng cafeteria = new LatLng(29.588575, -98.573710);
+
+        mMap.addMarker(new MarkerOptions().position(employeeEnterance).title("Employee Entrance"));
         mMap.addMarker(new MarkerOptions().position(lobby).title("Front Lobby"));
+        mMap.addMarker(new MarkerOptions().position(cafeteria).title("Cafeteria"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
 
-
-            LatLng NEWARK = new LatLng(29.588890, -98.574000);
+            LatLng NEWARK = new LatLng(29.588840, -98.573990);
 
             GroundOverlayOptions newarkMap = new GroundOverlayOptions()
                     .image(BitmapDescriptorFactory.fromResource(R.drawable.newark_nj_1922))
@@ -188,6 +226,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         // Prompt the user for permission.
         getLocationPermission();
+        getDeviceLocation();
+
     }
     private void getCurrentPlaceLikelihoods() {
         // Use fields to define the data types to return.
@@ -253,6 +293,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
 
+
+
     public void getDeviceLocation(){
         /*
          * Get the best and most recent location of the device, which may be null in rare
@@ -278,6 +320,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             Log.e(TAG, "Exception: %s", task.getException());
                             mMap.moveCamera(CameraUpdateFactory
                                     .newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
+
+
                         }
 
                         getCurrentPlaceLikelihoods();
@@ -356,6 +400,14 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+    @Override
+    public void onMyLocationClick(@NonNull Location location) {
 
- }
+    }
+
+    @Override
+    public boolean onMyLocationButtonClick() {
+        return false;
+    }
+}
 

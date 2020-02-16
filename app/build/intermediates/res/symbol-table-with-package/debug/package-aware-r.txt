@@ -1313,6 +1313,7 @@ mipmap ic_launcher
 mipmap ic_launcher_round
 mipmap test
 mipmap test_round
+raw mapstyle
 raw places_keep
 string abc_action_bar_home_description
 string abc_action_bar_up_description
