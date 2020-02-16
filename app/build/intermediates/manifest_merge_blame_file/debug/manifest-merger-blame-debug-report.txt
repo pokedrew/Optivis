@@ -18,96 +18,112 @@
 16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 16-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:10:5-79
 16-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:10:22-76
-17
-18    <!-- Include required permissions for Google Maps API to run. -->
+17    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+17-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:10:5-76
+17-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:10:22-73
+18    <uses-permission android:name="android.permission.INTERNET" /> <!-- Include required permissions for Google Maps API to run. -->
+18-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:11:5-67
+18-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:11:22-64
 19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 19-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:5-79
 19-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:23:22-76
-20    <uses-permission android:name="android.permission.INTERNET" />
-20-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:24:5-67
-20-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:24:22-64
-21
-22    <uses-feature
-22-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:26:5-28:35
-23        android:glEsVersion="0x00020000"
-23-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:27:9-41
-24        android:required="true" />
-24-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:28:9-32
-25
-26    <application
-26-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:12:5-41:19
-27        android:allowBackup="true"
-27-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:13:9-35
-28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-28-->[androidx.core:core:1.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\core-1.0.1\AndroidManifest.xml:22:18-86
-29        android:debuggable="true"
-30        android:icon="@mipmap/ic_launcher"
-30-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:14:9-43
-31        android:label="@string/app_name"
-31-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:15:9-41
-32        android:roundIcon="@mipmap/ic_launcher_round"
-32-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:16:9-54
-33        android:supportsRtl="true"
-33-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:17:9-35
-34        android:testOnly="true"
-35        android:theme="@style/AppTheme" >
-35-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:18:9-40
-36
-37        <!--
-38             The API key for Google Maps-based APIs is defined as a string resource.
-39             (See the file "res/values/google_maps_api.xml").
-40             Note that the API key is linked to the encryption key used to sign the APK.
-41             You need a different API key for each encryption key, including the release key that is used to
-42             sign the APK for publishing.
-43             You can define the keys for the debug and release targets in src/debug/ and src/release/.
-44        -->
-45        <meta-data
-45-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:28:9-30:55
-46            android:name="com.google.android.geo.API_KEY"
-46-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:29:13-58
-47            android:value="@string/google_maps_key" />
-47-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:30:13-52
-48
-49        <activity
-49-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:32:9-40:20
-50            android:name="com.example.thingtest.MapsActivity"
-50-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:33:13-41
-51            android:label="@string/title_activity_maps" >
-51-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:34:13-56
-52            <intent-filter>
-52-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:35:13-39:29
-53                <action android:name="android.intent.action.MAIN" />
-53-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:36:17-69
-53-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:36:25-66
-54
-55                <category android:name="android.intent.category.LAUNCHER" />
-55-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:38:17-77
-55-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:38:27-74
-56            </intent-filter>
-57        </activity>
-58        <!-- Needs to be explicitly declared on P+ -->
-59        <uses-library
-59-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
-60            android:name="org.apache.http.legacy"
-60-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
-61            android:required="false" />
-61-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
-62
-63        <activity
-63-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\1b5f22684b9b075c7e9b79dcae171592\jetified-play-services-base-16.0.1\AndroidManifest.xml:23:9-26:75
-64            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-64-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\1b5f22684b9b075c7e9b79dcae171592\jetified-play-services-base-16.0.1\AndroidManifest.xml:24:13-79
-65            android:exported="false"
-65-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\1b5f22684b9b075c7e9b79dcae171592\jetified-play-services-base-16.0.1\AndroidManifest.xml:25:13-37
-66            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-66-->[com.google.android.gms:play-services-base:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\1b5f22684b9b075c7e9b79dcae171592\jetified-play-services-base-16.0.1\AndroidManifest.xml:26:13-72
-67
-68        <meta-data
-68-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9943b0c2ecb3357db64a2bce6676c526\jetified-play-services-basement-16.0.1\AndroidManifest.xml:23:9-25:69
-69            android:name="com.google.android.gms.version"
-69-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9943b0c2ecb3357db64a2bce6676c526\jetified-play-services-basement-16.0.1\AndroidManifest.xml:24:13-58
-70            android:value="@integer/google_play_services_version" />
-70-->[com.google.android.gms:play-services-basement:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9943b0c2ecb3357db64a2bce6676c526\jetified-play-services-basement-16.0.1\AndroidManifest.xml:25:13-66
-71    </application>
-72
-73</manifest>
+20
+21    <uses-feature
+21-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:26:5-28:35
+22        android:glEsVersion="0x00020000"
+22-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:27:9-41
+23        android:required="true" />
+23-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:28:9-32
+24
+25    <application
+25-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:12:5-41:19
+26        android:allowBackup="true"
+26-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:13:9-35
+27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+27-->[androidx.core:core:1.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\8f8ab13dc8f4e84e14a8bb3d9ac92bc4\core-1.0.1\AndroidManifest.xml:22:18-86
+28        android:debuggable="true"
+29        android:icon="@mipmap/ic_launcher"
+29-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:14:9-43
+30        android:label="@string/app_name"
+30-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:15:9-41
+31        android:roundIcon="@mipmap/ic_launcher_round"
+31-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:16:9-54
+32        android:supportsRtl="true"
+32-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:17:9-35
+33        android:testOnly="true"
+34        android:theme="@style/AppTheme" >
+34-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:18:9-40
+35
+36        <!--
+37             The API key for Google Maps-based APIs is defined as a string resource.
+38             (See the file "res/values/google_maps_api.xml").
+39             Note that the API key is linked to the encryption key used to sign the APK.
+40             You need a different API key for each encryption key, including the release key that is used to
+41             sign the APK for publishing.
+42             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+43        -->
+44        <meta-data
+44-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:28:9-30:55
+45            android:name="com.google.android.geo.API_KEY"
+45-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:29:13-58
+46            android:value="@string/google_maps_key" />
+46-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:30:13-52
+47
+48        <activity
+48-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:32:9-40:20
+49            android:name="com.example.thingtest.MapsActivity"
+49-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:33:13-41
+50            android:label="@string/title_activity_maps" >
+50-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:34:13-56
+51            <intent-filter>
+51-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:35:13-39:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:36:17-69
+52-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:36:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:38:17-77
+54-->C:\Users\andre\Thingtest\app\src\main\AndroidManifest.xml:38:27-74
+55            </intent-filter>
+56        </activity>
+57        <!-- Autocomplete -->
+58        <activity
+58-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:16:9-23:20
+59            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+59-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:17:13-91
+60            android:exported="false"
+60-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:18:13-37
+61            android:hardwareAccelerated="true"
+61-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:19:13-47
+62            android:label="@string/places_autocomplete_label"
+62-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:20:13-62
+63            android:theme="@style/PlacesAutocompleteThemeOverlay"
+63-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:21:13-66
+64            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" >
+64-->[com.google.android.libraries.places:places:1.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\71a25e5e957dfb2a0f0da26366adb1dc\jetified-places-1.1.0\AndroidManifest.xml:22:13-71
+65        </activity> <!-- Needs to be explicitly declared on P+ -->
+66        <uses-library
+66-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:33:9-35:40
+67            android:name="org.apache.http.legacy"
+67-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:34:13-50
+68            android:required="false" />
+68-->[com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\9ebb67d939bf2abc3d8969d2688e271f\jetified-play-services-maps-16.1.0\AndroidManifest.xml:35:13-37
+69
+70        <activity
+70-->[com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\0c75a9b2b57255c2e7d11888c14311b3\jetified-play-services-base-16.1.0\AndroidManifest.xml:23:9-26:75
+71            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+71-->[com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\0c75a9b2b57255c2e7d11888c14311b3\jetified-play-services-base-16.1.0\AndroidManifest.xml:24:13-79
+72            android:exported="false"
+72-->[com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\0c75a9b2b57255c2e7d11888c14311b3\jetified-play-services-base-16.1.0\AndroidManifest.xml:25:13-37
+73            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+73-->[com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\0c75a9b2b57255c2e7d11888c14311b3\jetified-play-services-base-16.1.0\AndroidManifest.xml:26:13-72
+74
+75        <meta-data
+75-->[com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4674d5ad5f2a0c16e345b2851962a8fe\jetified-play-services-basement-16.2.0\AndroidManifest.xml:23:9-25:69
+76            android:name="com.google.android.gms.version"
+76-->[com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4674d5ad5f2a0c16e345b2851962a8fe\jetified-play-services-basement-16.2.0\AndroidManifest.xml:24:13-58
+77            android:value="@integer/google_play_services_version" />
+77-->[com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4674d5ad5f2a0c16e345b2851962a8fe\jetified-play-services-basement-16.2.0\AndroidManifest.xml:25:13-66
+78    </application>
+79
+80</manifest>
