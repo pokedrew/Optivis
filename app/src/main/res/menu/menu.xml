@@ -6,6 +6,7 @@
     <item
         android:id="@+id/action_geolocate"
         android:icon="@drawable/ic_goelocate"
+        android:tint="#e8b104"
         android:title="@string/action_geolocate"
         app:showAsAction="always|withText" />
 </menu>

@@ -72,7 +72,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
     private final LatLng mDefaultLocation = new LatLng(-33.8523341, 151.2106085);
-    private static final int DEFAULT_ZOOM = 22;
+    private static final int DEFAULT_ZOOM = 20;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 1;
     private boolean mLocationPermissionGranted;
 
@@ -164,10 +164,16 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng Documation = new LatLng(29.588797, -98.574028);
-        mMap.addMarker(new MarkerOptions().position(Documation).title("Documation"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(Documation));
+        // follow location
+        LatLng myLocation = new LatLng(29.588797, -98.574028);
+        LatLng employeeEnterance = new LatLng(29.5891972, -98.5740650);
+        LatLng ITdesk = new LatLng(29.588797, -98.574028);
+        //change coordinates
+        LatLng lobby = new LatLng(29.588797, -97.574028);
+        mMap.addMarker(new MarkerOptions().position(myLocation).title("My Location"));
+        mMap.addMarker(new MarkerOptions().position(employeeEnterance).title("Employee Enterance"));
+        mMap.addMarker(new MarkerOptions().position(lobby).title("Front Lobby"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
 
 
             LatLng NEWARK = new LatLng(29.588890, -98.574000);
@@ -232,9 +238,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     break;
                                 }
                             }
-                            // COMMENTED OUT UNTIL WE DEFINE THE METHOD
                             // Populate the ListView
-                            // fillPlacesList();
+                            fillPlacesList();
                         } else {
                             Exception exception = task.getException();
                             if (exception instanceof ApiException) {
@@ -248,7 +253,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
 
-    private void getDeviceLocation(){
+    public void getDeviceLocation(){
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
@@ -303,6 +308,33 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             // Prompt the user for permission.
             getLocationPermission();
         }
+    }
+    private AdapterView.OnItemClickListener listClickedHandler = new AdapterView.OnItemClickListener() {
+        public void onItemClick(AdapterView parent, View v, int position, long id) {
+            // position will give us the index of which place was selected in the array
+            LatLng markerLatLng = mLikelyPlaceLatLngs[position];
+            String markerSnippet = mLikelyPlaceAddresses[position];
+            if (mLikelyPlaceAttributions[position] != null) {
+                markerSnippet = markerSnippet + "\n" + mLikelyPlaceAttributions[position];
+            }
+
+            // Add a marker for the selected place, with an info window
+            // showing information about that place.
+            mMap.addMarker(new MarkerOptions()
+                    .title(mLikelyPlaceNames[position])
+                    .position(markerLatLng)
+                    .snippet(markerSnippet));
+
+            // Position the map's camera at the location of the marker.
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(markerLatLng));
+        }
+    };
+    private void fillPlacesList() {
+        // Set up an ArrayAdapter to convert likely places into TextViews to populate the ListView
+        ArrayAdapter<String> placesAdapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mLikelyPlaceNames);
+        lstPlaces.setAdapter(placesAdapter);
+        lstPlaces.setOnItemClickListener(listClickedHandler);
     }
     /**
      * Handles the result of the request for location permissions.
