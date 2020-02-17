@@ -2,6 +2,7 @@ package com.example.thingtest;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 
@@ -31,6 +32,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -73,7 +75,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
 
     // The geographical location where the device is currently located. That is, the last-known
     // location retrieved by the Fused Location Provider.
-   public Location mLastKnownLocation;
+    public Location mLastKnownLocation;
 
     // A default location (Sydney, Australia) and default zoom to use when location permission is
     // not granted.
@@ -88,7 +90,6 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
     private String[] mLikelyPlaceAddresses;
     private String[] mLikelyPlaceAttributions;
     private LatLng[] mLikelyPlaceLatLngs;
-
 
 
     @Override
@@ -117,40 +118,22 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         mPlacesClient = Places.createClient(this);
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
     }
+
+    public void next(View view){
+        startActivity(new Intent(MapsActivity.this,MapsActivity.class));
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-
-        return super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.menulist, menu);
+        return true;
     }
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_geolocate:
-
-                Timer timer = new Timer();
-
-                timer.schedule( new TimerTask() {
-                    public void run() {
-                        // COMMENTED OUT UNTIL WE DEFINE THE METHOD
-                        // Present the current place picker
 
 
-                    }
-                }, 0, 5*1000);
 
-                return true;
 
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
-    }
 
 
 
@@ -207,7 +190,7 @@ public class MapsActivity extends AppCompatActivity implements GoogleMap.OnMyLoc
         LatLng ITdesk = new LatLng(29.588797, -98.574028);
         //change coordinates
         LatLng lobby = new LatLng(29.588761, -98.573729);
-        LatLng cafeteria = new LatLng(29.588575, -98.573710);
+        LatLng cafeteria = new LatLng(29.588580, -98.573840);
 
         mMap.addMarker(new MarkerOptions().position(employeeEnterance).title("Employee Entrance"));
         mMap.addMarker(new MarkerOptions().position(lobby).title("Front Lobby"));
